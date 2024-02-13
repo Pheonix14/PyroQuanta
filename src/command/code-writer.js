@@ -5,21 +5,28 @@ const embeds = require("./../../config/embeds.json");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("ask-pyroquanta")
-    .setDescription("Ask questions to PyroQuanta.")
+    .setName("code-writer")
+    .setDescription("Write code for your project")
     .addStringOption((option) =>
       option
-        .setName("prompt")
-        .setDescription(
-          "prompt for PyroQuanta, eg. what is the meaning of life?",
-        )
+        .setName("project")
+        .setDescription("project to write code for, eg. discord bot")
+        .setRequired(true),
+    )
+    .addStringOption((option) =>
+      option
+        .setName("coding-lang")
+        .setDescription("programming language, eg. python")
         .setRequired(true),
     ),
   async execute(interaction, client) {
-    const prompt = interaction.options.getString("prompt");
+    const project = interaction.options.getString("project");
+    const codingLang = interaction.options.getString("coding-lang");
 
     try {
-      const result = await model.generateContent(prompt);
+      const result = await model.generateContent(
+        `write code for ${project} in ${codingLang}`,
+      );
       const response = await result.response;
       const text = response.text();
 

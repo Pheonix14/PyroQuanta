@@ -21,27 +21,26 @@ module.exports = {
     )
     .addStringOption((option) =>
       option
-        .setName("from")
-        .setDescription("your name, eg. Pheonix")
+        .setName("details")
+        .setDescription("explain some details, eg. i want leaves for vacation")
         .setRequired(true),
     )
     .addStringOption((option) =>
       option
-        .setName("details")
-        .setDescription(
-          "explain some details, eg. im sorry i didnt get your leave",
-        ),
+        .setName("from")
+        .setDescription("your name, eg. Pheonix")
+        .setRequired(true),
     ),
 
   async execute(interaction, client) {
     const to = interaction.options.getString("to");
     const subject = interaction.options.getString("subject");
-    const details = interaction.options.getString("subject") || "";
+    const details = interaction.options.getString("details");
     const from = interaction.options.getString("from");
 
     try {
       const result = await model.generateContent(
-        `write a email to ${to} with subject ${subject} and include details "${details}" from ${from}`,
+        `write a simple email using following information: to ${to}, subject: ${subject}, details: "${details}" from: ${from}`,
       );
       const response = await result.response;
       const text = response.text();
