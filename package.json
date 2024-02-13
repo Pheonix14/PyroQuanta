@@ -1,0 +1,19 @@
+{
+  "name": "PyroQuanta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "deploy": "node ./src/deploy.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.2.0",
+    "@types/node": "^18.0.6",
+    "discord.js": "^14.14.1",
+    "node-fetch": "^3.2.6"
+  }
+}

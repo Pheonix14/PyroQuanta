@@ -1,0 +1,14 @@
+{
+  "bot": {
+    "token": "",
+    "clientId": "",
+    "guildId": "",
+    "GEMINI_API_KEY": ""
+  },
+  "settings": {
+    "antiCrash": false,
+    "maintenance": false,
+    "globalCommands": false,
+    "admin": [""]
+  }
+}
