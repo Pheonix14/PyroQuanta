@@ -43,7 +43,7 @@ module.exports = {
 
       const embed = new EmbedBuilder()
         .setColor(embeds.color)
-        .setTitle(`**PyroQuanta**`)
+        .setTitle(`**AI Error Finder**`)
         .setDescription(`${text}`)
         .setFooter({ text: `Powered by Google's Gemini AI` })
         .setTimestamp();

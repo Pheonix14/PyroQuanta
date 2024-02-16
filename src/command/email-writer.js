@@ -47,7 +47,7 @@ module.exports = {
 
       const embed = new EmbedBuilder()
         .setColor(embeds.color)
-        .setTitle(`**PyroQuanta**`)
+        .setTitle(`**AI Email Writer**`)
         .setDescription(`${text}`)
         .setFooter({ text: `Powered by Google's Gemini AI` })
         .setTimestamp();

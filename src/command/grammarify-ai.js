@@ -5,41 +5,28 @@ const embeds = require("./../../config/embeds.json");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("ai-translate")
-    .setDescription("translate text to another language")
-    .addStringOption((option) =>
-      option
-        .setName("from")
-        .setDescription("laguange to translate from, eg. English")
-        .setRequired(true),
-    )
+    .setName("grammarify-ai")
+    .setDescription("Fix grammar mistakes in text and make it more readable")
     .addStringOption((option) =>
       option
         .setName("text")
-        .setDescription("text to translate, eg. Hello World")
-        .setRequired(true),
-    )
-    .addStringOption((option) =>
-      option
-        .setName("to")
-        .setDescription("laguange to translate to, eg. Hindi")
+        .setDescription("text to fix grammar, eg. Um a good boy")
         .setRequired(true),
     ),
   async execute(interaction, client) {
-    const fromLang = interaction.options.getString("from");
-    const transText = interaction.options.getString("text");
-    const toLang = interaction.options.getString("to");
+    const GramText = interaction.options.getString("text");
 
     try {
       const result = await model.generateContent(
-        `translate the text: "${transText}", from: ${fromLang} to: ${toLang}`,
+        `fix grammar of given text and make it more readable
+        text: "${GramText}"`,
       );
       const response = await result.response;
       const text = response.text();
 
       const embed = new EmbedBuilder()
         .setColor(embeds.color)
-        .setTitle(`**AI Translate**`)
+        .setTitle(`**Grammarify AI**`)
         .setDescription(`${text}`)
         .setFooter({ text: `Powered by Google's Gemini AI` })
         .setTimestamp();
@@ -47,7 +34,7 @@ module.exports = {
       await interaction.editReply({ embeds: [embed] });
     } catch (error) {
       await interaction.editReply(
-        "Your request is rejected, maybe given language is not supported.",
+        "Your request is rejected, please be civil and friendly.",
       );
     }
   },
