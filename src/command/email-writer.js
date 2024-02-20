@@ -6,7 +6,7 @@ const embeds = require("./../../config/embeds.json");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("email-writer")
-    .setDescription("Genrate emails.")
+    .setDescription("Write emails for you")
     .addStringOption((option) =>
       option
         .setName("to")

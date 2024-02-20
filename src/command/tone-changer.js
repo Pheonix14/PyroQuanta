@@ -6,7 +6,7 @@ const embeds = require("./../../config/embeds.json");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("tone-changer")
-    .setDescription("change tone of text")
+    .setDescription("Change tone of your text")
     .addStringOption((option) =>
       option
         .setName("text")

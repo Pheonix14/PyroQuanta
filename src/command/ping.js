@@ -4,7 +4,7 @@ const embeds = require("./../../config/embeds.json");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("ping")
-    .setDescription("check bot's latency"),
+    .setDescription("Check bot's latency"),
   async execute(interaction, client) {
     const embed = new EmbedBuilder()
       .setColor(embeds.color)

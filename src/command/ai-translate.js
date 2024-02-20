@@ -6,7 +6,7 @@ const embeds = require("./../../config/embeds.json");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("ai-translate")
-    .setDescription("translate text to another language")
+    .setDescription("Translate text to another language")
     .addStringOption((option) =>
       option
         .setName("from")

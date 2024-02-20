@@ -6,9 +6,7 @@
 PyroQuanta is an AI-based open source discord bot powered by Google's Gemini Pro model.
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
-## Caution
 
-**This project is under development and many features are not completed yet. It may also have bugs and errors. The bot is not released to the public yet. If you want to use it, you need to get special permission from the community manager or self host the bot. To see the available commands, run /help in your discord server.**
 ## Features
 
 - AI code write: Generate code snippets based on natural language descriptions.

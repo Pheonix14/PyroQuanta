@@ -6,7 +6,7 @@ const embeds = require("./../../config/embeds.json");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("grammarify-ai")
-    .setDescription("Fix grammar mistakes in text and make it more readable")
+    .setDescription("Fix grammar mistakes in your text and make it more readable")
     .addStringOption((option) =>
       option
         .setName("text")
