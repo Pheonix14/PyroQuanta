@@ -55,7 +55,7 @@ module.exports = {
     __**📌 Links:**__
     [Website](https://phoenixopentech.netlify.app/)
     [Support](https://dsc.gg/phoenixopentech)
-    [Invite Me](https://discord.com/api/oauth2/authorize?client_id=1078673715189854)
+    [Invite Me](https://discord.com/api/oauth2/authorize?client_id=1160118611021672448&permissions=964220475456&scope=bot)
   `,
       )
       .setFooter({ text: embeds.footer })
