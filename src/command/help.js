@@ -28,6 +28,12 @@ module.exports = {
             description: "Generative AI commands list",
             value: "help_genAI",
           },
+          {
+            label: "Developer Only",
+            emoji: "🔌",
+            description: "Developer Only commands list",
+            value: "help_dev",
+          },
         ]),
     );
 
@@ -123,6 +129,21 @@ module.exports = {
       .setFooter({ text: `${embeds.footer}` })
       .setTimestamp();
 
+    const DevEmbed = new EmbedBuilder()
+      .setColor(embeds.color)
+      .setTitle(`**PyroQuanta's Commands**`)
+      .setDescription("**🔌 Developer Only:**")
+      .addFields(
+        { name: "/eval", value: "- Evaluate javascript code dynamically", inline: false },
+        {
+          name: "/system-info",
+          value: "- Check bot's system info",
+          inline: false,
+        },
+      )
+      .setFooter({ text: `${embeds.footer}` })
+      .setTimestamp();
+    
     const collector = interaction.channel.createMessageComponentCollector({
       ComponentType: "SELECT_MENU",
       customId: "help_select",
@@ -138,6 +159,10 @@ module.exports = {
 
       if (value === "help_genAI") {
         collected.reply({ embeds: [GenAiEmbed] });
+      }
+
+      if (value === "help_dev") {
+        collected.reply({ embeds: [DevEmbed] });
       }
     });
 

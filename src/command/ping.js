@@ -12,7 +12,7 @@ module.exports = {
       .addFields({
         name: "Gateway Latency:",
         value: `${interaction.client.ws.ping}ms`,
-        inline: true,
+        inline: false,
       })
       .setFooter({ text: `${embeds.footer}` })
       .setTimestamp();
