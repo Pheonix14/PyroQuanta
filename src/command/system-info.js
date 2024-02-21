@@ -13,6 +13,7 @@ module.exports = {
   async execute(interaction, client) {
     if (!config.settings.admin.includes(interaction.user.id))
       return interaction.reply(`This command is only for developers`);
+    try {
     cpuStat.usagePercent(function (err, percent) {
       if (err) {
         return console.log(err);
@@ -92,5 +93,9 @@ module.exports = {
         .setTimestamp();
       interaction.editReply({ embeds: [embed] });
     });
+      } catch (error) {
+       interaaction.editReply({ content: "An error occurred while executing this command." });
+      consolo.error(error);
+    }
   },
 };
