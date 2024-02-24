@@ -5,7 +5,7 @@ const model = require("./../model/gemini-pro.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("letter-writer")
-    .setDescription("Write emails for you")
+    .setDescription("Write letter for you")
     .addStringOption((option) =>
       option
         .setName("to")

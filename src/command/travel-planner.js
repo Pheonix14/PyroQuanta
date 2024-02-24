@@ -5,7 +5,7 @@ const model = require("./../model/gemini-pro.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("travel-planner")
-    .setDescription("make a travel plan for your trip")
+    .setDescription("Make a travel plan for your trip")
     .addStringOption((option) =>
       option
         .setName("destination")

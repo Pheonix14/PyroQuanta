@@ -5,7 +5,7 @@ const model = require("./../model/gemini-pro.js");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("caption-writer")
-    .setDescription("write a caption for your social post")
+    .setDescription("Write a caption for your social post")
     .addStringOption((option) =>
       option
         .setName("about")

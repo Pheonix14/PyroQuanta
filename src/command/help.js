@@ -62,7 +62,7 @@ module.exports = {
     [Invite Me](https://discord.com/api/oauth2/authorize?client_id=1160118611021672448&permissions=964220475456&scope=bot)
   `,
       )
-      .setFooter({ text: 'PyroQuanta' })
+      .setFooter({ text: "PyroQuanta" })
       .setTimestamp();
 
     interaction.editReply({ embeds: [embed], components: [row] });
@@ -121,16 +121,34 @@ module.exports = {
           value: "- Change tone of your text",
           inline: false,
         },
+        {
+          name: "/travel-planner",
+          value: "- Make a travel plan for your trip",
+          inline: false,
+        },
+        {
+          name: "/caption-writer",
+          value: "- Write a caption for your social post",
+          inline: false,
+        },
+        {
+          name: "/letter-writer",
+          value: "- Write letters for you",
+          inline: false,
+        },
       )
       .setFooter({ text: `PyroQuanta` })
       .setTimestamp();
 
     const DevEmbed = new EmbedBuilder()
-      .setColor(embeds.color)
       .setTitle(`**PyroQuanta's Commands**`)
       .setDescription("**🔌 Developer Only:**")
       .addFields(
-        { name: "/eval", value: "- Evaluate javascript code dynamically", inline: false },
+        {
+          name: "/eval",
+          value: "- Evaluate javascript code dynamically",
+          inline: false,
+        },
         {
           name: "/system-info",
           value: "- Check bot's system info",
@@ -139,7 +157,7 @@ module.exports = {
       )
       .setFooter({ text: `PyroQuanta` })
       .setTimestamp();
-    
+
     const collector = interaction.channel.createMessageComponentCollector({
       ComponentType: "SELECT_MENU",
       customId: "help_select",
