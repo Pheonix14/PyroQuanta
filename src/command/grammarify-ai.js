@@ -1,7 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const config = require("./../../config/config.json");
 const model = require("./../model/gemini-pro.js");
-const embeds = require("./../../config/embeds.json");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -25,7 +24,6 @@ module.exports = {
       const text = response.text();
 
       const embed = new EmbedBuilder()
-        .setColor(embeds.color)
         .setTitle(`**Grammarify AI**`)
         .setDescription(`${text}`)
         .setFooter({ text: `Powered by Google's Gemini AI` })

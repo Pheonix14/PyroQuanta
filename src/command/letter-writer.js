@@ -4,18 +4,18 @@ const model = require("./../model/gemini-pro.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("email-writer")
+    .setName("letter-writer")
     .setDescription("Write emails for you")
     .addStringOption((option) =>
       option
         .setName("to")
-        .setDescription("person to email, eg. sir, headmaster")
+        .setDescription("person to letter, eg. sir, headmaster")
         .setRequired(true),
     )
     .addStringOption((option) =>
       option
         .setName("subject")
-        .setDescription("subject of email, eg. leave application")
+        .setDescription("subject of letter, eg. leave application")
         .setRequired(true),
     )
     .addStringOption((option) =>
@@ -39,13 +39,13 @@ module.exports = {
 
     try {
       const result = await model.generateContent(
-        `write a simple email using following information: to ${to}, subject: ${subject}, details: "${details}" from: ${from}`,
+        `write a simple letter using following information: to ${to}, subject: ${subject}, details: "${details}" from: ${from}`,
       );
       const response = await result.response;
       const text = response.text();
 
       const embed = new EmbedBuilder()
-        .setTitle(`**AI Email Writer**`)
+        .setTitle(`**AI Letter Writer**`)
         .setDescription(`${text}`)
         .setFooter({ text: `Powered by Google's Gemini AI` })
         .setTimestamp();

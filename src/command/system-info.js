@@ -3,7 +3,6 @@ const Discord = require("discord.js");
 const cpuStat = require("cpu-stat");
 const os = require("node:os");
 const ms = require("ms");
-const embeds = require("./../../config/embeds.json");
 const config = require("./../../config/config.json");
 
 module.exports = {
@@ -35,7 +34,6 @@ module.exports = {
       let BOTuptimeString = ms(Botuptime);
 
       const embed = new EmbedBuilder()
-        .setColor(embeds.color)
         .setTitle(`**System Info:**`)
         .addFields(
           {
@@ -89,7 +87,7 @@ module.exports = {
             inline: false,
           },
         )
-        .setFooter({ text: `${embeds.footer}` })
+        .setFooter({ text: `PyroQuanta` })
         .setTimestamp();
       interaction.editReply({ embeds: [embed] });
     });

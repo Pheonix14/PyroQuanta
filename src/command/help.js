@@ -4,7 +4,6 @@ const {
   StringSelectMenuBuilder,
   SlashCommandBuilder,
 } = require("discord.js");
-const embeds = require("./../../config/embeds.json");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -38,7 +37,6 @@ module.exports = {
     );
 
     const embed = new EmbedBuilder()
-      .setColor(embeds.color)
       .setTitle(`**Welcome To PyroQuanta!**`)
       .setDescription(
         `
@@ -64,13 +62,12 @@ module.exports = {
     [Invite Me](https://discord.com/api/oauth2/authorize?client_id=1160118611021672448&permissions=964220475456&scope=bot)
   `,
       )
-      .setFooter({ text: embeds.footer })
+      .setFooter({ text: 'PyroQuanta' })
       .setTimestamp();
 
     interaction.editReply({ embeds: [embed], components: [row] });
 
     const InfoEmbed = new EmbedBuilder()
-      .setColor(embeds.color)
       .setTitle(`**PyroQuanta's Commands**`)
       .setDescription("**📄 Info:**")
       .addFields(
@@ -81,11 +78,10 @@ module.exports = {
           inline: false,
         },
       )
-      .setFooter({ text: `${embeds.footer}` })
+      .setFooter({ text: `PyroQuanta` })
       .setTimestamp();
 
     const GenAiEmbed = new EmbedBuilder()
-      .setColor(embeds.color)
       .setTitle(`**PyroQuanta's Commands**`)
       .setDescription("**✨ Generative AI:**")
       .addFields(
@@ -126,7 +122,7 @@ module.exports = {
           inline: false,
         },
       )
-      .setFooter({ text: `${embeds.footer}` })
+      .setFooter({ text: `PyroQuanta` })
       .setTimestamp();
 
     const DevEmbed = new EmbedBuilder()
@@ -141,7 +137,7 @@ module.exports = {
           inline: false,
         },
       )
-      .setFooter({ text: `${embeds.footer}` })
+      .setFooter({ text: `PyroQuanta` })
       .setTimestamp();
     
     const collector = interaction.channel.createMessageComponentCollector({

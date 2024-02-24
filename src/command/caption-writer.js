@@ -4,33 +4,26 @@ const model = require("./../model/gemini-pro.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("code-writer")
-    .setDescription("Write code for your project")
+    .setName("caption-writer")
+    .setDescription("write a caption for your social post")
     .addStringOption((option) =>
       option
-        .setName("project")
-        .setDescription("project to write code for, eg. discord bot")
-        .setRequired(true),
-    )
-    .addStringOption((option) =>
-      option
-        .setName("coding-lang")
-        .setDescription("programming language, eg. python")
+        .setName("about")
+        .setDescription(
+          "about your post, eg. photo of my self front of ram mandir",
+        )
         .setRequired(true),
     ),
   async execute(interaction, client) {
-    const project = interaction.options.getString("project");
-    const codingLang = interaction.options.getString("coding-lang");
+    const about = interaction.options.getString("about");
 
     try {
-      const result = await model.generateContent(
-        `write code for ${project} in ${codingLang} programming language`,
-      );
+      const result = await model.generateContent(`write a caption for social post about: ${about}`);
       const response = await result.response;
       const text = response.text();
 
       const embed = new EmbedBuilder()
-        .setTitle(`**AI Code Writer**`)
+        .setTitle(`**Caption Writer AI**`)
         .setDescription(`${text}`)
         .setFooter({ text: `Powered by Google's Gemini AI` })
         .setTimestamp();

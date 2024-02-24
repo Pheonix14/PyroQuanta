@@ -4,44 +4,33 @@ const model = require("./../model/gemini-pro.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("error-fixer")
-    .setDescription("Find errors in your code and fix it")
+    .setName("travel-planner")
+    .setDescription("make a travel plan for your trip")
     .addStringOption((option) =>
       option
-        .setName("error")
-        .setDescription("code's error message, eg. PyroQuanta is not defined")
+        .setName("destination")
+        .setDescription("your trip destination, eg. Ayodhya")
         .setRequired(true),
     )
-    .addStringOption((option) =>
+    .addNumberOption((option) =>
       option
-        .setName("code")
-        .setDescription("code that have error, eg. console.log(PyroQuanta)")
-        .setRequired(true),
-    )
-    .addStringOption((option) =>
-      option
-        .setName("coding-lang")
-        .setDescription("programming language, eg. javascript")
+        .setName("stay")
+        .setDescription("how many days to stay, eg. 7 days")
         .setRequired(true),
     ),
   async execute(interaction, client) {
-    const errorMsg = interaction.options.getString("error");
-    const code = interaction.options.getString("code");
-    const codingLang = interaction.options.getString("coding-lang");
+    const destination = interaction.options.getString("destination");
+    const stay = interaction.options.getNumber("stay");
 
     try {
       const result = await model.generateContent(
-        `find the error: "${errorMsg}",
-        
-        from the code: "${code}
-        
-        in: "${codingLang} programming language"`,
+        `plan a trip to: ${destination} for ${stay} days`,
       );
       const response = await result.response;
       const text = response.text();
 
       const embed = new EmbedBuilder()
-        .setTitle(`**AI Error Finder**`)
+        .setTitle(`**Travel Planner AI**`)
         .setDescription(`${text}`)
         .setFooter({ text: `Powered by Google's Gemini AI` })
         .setTimestamp();

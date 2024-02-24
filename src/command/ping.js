@@ -1,5 +1,4 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
-const embeds = require("./../../config/embeds.json");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -7,14 +6,13 @@ module.exports = {
     .setDescription("Check bot's latency"),
   async execute(interaction, client) {
     const embed = new EmbedBuilder()
-      .setColor(embeds.color)
       .setTitle(`**PyroQuanta Latency:**`)
       .addFields({
         name: "Gateway Latency:",
         value: `${interaction.client.ws.ping}ms`,
         inline: false,
       })
-      .setFooter({ text: `${embeds.footer}` })
+      .setFooter({ text: `PyroQuanta` })
       .setTimestamp();
     interaction.editReply({ embeds: [embed] });
   },
