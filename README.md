@@ -15,7 +15,7 @@ PyroQuanta is an AI-based open source discord bot powered by Google's Gemini Pro
 - AI email writer: Compose professional and personalized emails.
 - Text tone changer: Modify the tone and style of text.
 - Error fixed: Detect and fix errors in code.
-
+- And Many More.
 
 ## Installation
 
