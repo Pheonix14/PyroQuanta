@@ -136,6 +136,16 @@ module.exports = {
           value: "- Write letters for you",
           inline: false,
         },
+        {
+          name: "/report-writer",
+          value: "- Generate a professional report",
+          inline: false,
+        },
+        {
+          name: "/simplify",
+          value: "- Generate a simplify version of the prompt",
+          inline: false,
+        },
       )
       .setFooter({ text: `PyroQuanta` })
       .setTimestamp();
