@@ -33,8 +33,12 @@ cd PyroQuanta
 ```bash
 npm install
 ```
-- Rename the file `./config/example-config.json` to `./config/config.json`
-- Fill the configuration file with your Gemini API key and Discord bot token
+- Rename the file `./config/example-config.json` to `./config/config.json`.
+- Fill the configuration file with your Gemini API key and Discord bot token.
+- Deploy slash commands: 
+```bash
+npm run deploy
+```
 - Start the bot: 
 ```bash
 npm run start
