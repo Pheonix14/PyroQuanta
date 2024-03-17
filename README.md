@@ -23,7 +23,7 @@ To run PyroQuanta locally, you need to have Node.js (LTS version) installed on y
 
 - Clone this repository: 
 ```bash
-git clone https://github.com/Phoenix-OPTE/PyroQuanta.git
+git clone https://github.com/Pheonix14/PyroQuanta.git
 ```
 - Change directory to PyroQuanta: 
 ```bash
