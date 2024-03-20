@@ -81,7 +81,7 @@ module.exports = {
         .setTimestamp();
       interaction.editReply({ embeds: [embed] });
       } catch (error) {
-       interaaction.editReply({ content: "An error occurred while executing this command." });
+       interaction.editReply({ content: "An error occurred while executing this command." });
       consolo.error(error);
     }
   },
