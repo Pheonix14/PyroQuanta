@@ -82,7 +82,7 @@ module.exports = {
       interaction.editReply({ embeds: [embed] });
       } catch (error) {
        interaction.editReply({ content: "An error occurred while executing this command." });
-      consolo.error(error);
+      console.error(error);
     }
   },
 };
