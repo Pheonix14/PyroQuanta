@@ -1,6 +1,5 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const Discord = require("discord.js");
-const cpuStat = require("cpu-stat");
 const os = require("node:os");
 const ms = require("ms");
 const config = require("./../../config/config.json");
@@ -13,10 +12,6 @@ module.exports = {
     if (!config.settings.admin.includes(interaction.user.id))
       return interaction.reply(`This command is only for developers`);
     try {
-    cpuStat.usagePercent(function (err, percent) {
-      if (err) {
-        return console.log(err);
-      }
 
       const totalMemory = os.totalmem();
 
@@ -49,11 +44,6 @@ module.exports = {
           {
             name: "CPU Arch:",
             value: `${os.arch()}`,
-            inline: false,
-          },
-          {
-            name: "CPU Usage:",
-            value: `${percent.toFixed(2)}%`,
             inline: false,
           },
           {
@@ -90,7 +80,6 @@ module.exports = {
         .setFooter({ text: `PyroQuanta` })
         .setTimestamp();
       interaction.editReply({ embeds: [embed] });
-    });
       } catch (error) {
        interaaction.editReply({ content: "An error occurred while executing this command." });
       consolo.error(error);
