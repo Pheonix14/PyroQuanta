@@ -26,6 +26,6 @@ const safetySettings = [
   },
 ];
 
-const model = genAI.getGenerativeModel({ model: "gemini-pro", safetySettings });
+const model = genAI.getGenerativeModel({ model: `${config.settings.model}`, safetySettings });
 
 module.exports = model;

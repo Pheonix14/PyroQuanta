@@ -8,6 +8,7 @@
   "settings": {
     "antiCrash": false,
     "maintenance": false,
+    "model": "gemini-1.5-flash",
     "globalCommands": false,
     "admin": [""]
   }

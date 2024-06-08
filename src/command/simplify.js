@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 const config = require("./../../config/config.json");
-const model = require("./../model/gemini-pro.js");
+const model = require("./../model/gemini.js");
 
 module.exports = {
   data: new SlashCommandBuilder()
